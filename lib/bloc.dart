@@ -39,14 +39,14 @@ class Bloc {
     _listController.add(list);
   }
 
-  // Background work
-  Future<List> _getData(String url) async {
-    final response = await get(url);
-    return json.decode(response.body);
-  }
-
   void dispose(){
     _listController.close();
     _favoritesController.close();
   }
 }
+
+// Background work
+  Future<List> _getData(String url) async {
+    final response = await get(url);
+    return json.decode(response.body);
+  }
